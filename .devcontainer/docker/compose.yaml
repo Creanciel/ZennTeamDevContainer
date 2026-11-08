@@ -1,0 +1,19 @@
+name: zenn-team-dev-container
+services:
+  development:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+
+    # Reap zombie processes; `sleep infinity` as PID 1 does not.
+    init: true
+    env_file:
+      - ../.env
+    volumes:
+      - ../..:/zenn_team_dev_container
+
+      # Claude Settings
+      - ${HOME}/.claude:/home/development/.claude
+      - ${HOME}/.claude.json:/home/development/.claude.json
+      - ../claude/settings.json:/home/development/.claude/settings.json
+    command: sleep infinity

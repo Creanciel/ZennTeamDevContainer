@@ -1,0 +1,37 @@
+{
+  "name": "Zenn Team Dev Container",
+  "dockerComposeFile": [
+    "./docker/compose.yaml",
+    "./docker/custom.compose.yaml"
+  ],
+  "service": "development",
+  "remoteUser": "development",
+  "updateRemoteUserUID": true,
+  "initializeCommand": [
+    "sh",
+    "-c",
+    "cd \"${localWorkspaceFolder}/.devcontainer/scripts\" || exit 1; [ -f initializeCommand.sh ] || cp initializeCommand.sample.sh initializeCommand.sh; sh initializeCommand.sh"
+  ],
+  "postStartCommand": [
+    "sh",
+    ".devcontainer/scripts/postStartCommand.sh"
+  ],
+  "workspaceFolder": "/zenn_team_dev_container",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.cwd": "/zenn_team_dev_container",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "workbench.colorCustomizations": {
+          "titleBar.activeBackground": "#1f6feb",
+          "titleBar.activeForeground": "#ffffff",
+          "titleBar.inactiveBackground": "#1f6feb99",
+          "titleBar.inactiveForeground": "#ffffffcc"
+        }
+      },
+      "extensions": [
+        "anthropic.claude-code"
+      ]
+    }
+  }
+}

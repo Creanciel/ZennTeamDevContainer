@@ -1,0 +1,11 @@
+# Per-environment overrides, merged on top of compose.yaml.
+# Copied to custom.compose.yaml by initializeCommand.sh; edit that copy, it is gitignored.
+services:
+  development: {}
+  #   build:
+  #     target: mise  # also install mise (https://mise.jdx.dev/)
+  #   volumes:
+  #     # Use the host's Docker daemon from inside the container (docker-outside-of-docker).
+  #     # Requires the docker CLI in the image and write access to the socket (e.g. `sudo chmod 666 /var/run/docker.sock`
+  #     # in postStartCommand.sh), and effectively grants root on the host.
+  #     - /var/run/docker.sock:/var/run/docker.sock
